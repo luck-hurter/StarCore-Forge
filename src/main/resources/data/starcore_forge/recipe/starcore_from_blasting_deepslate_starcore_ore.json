@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "starcore_forge:deepslate_starcore_ore"
+  },
+  "result": {
+    "id": "starcore_forge:starcore"
+  },
+  "experience": 0.7,
+  "cookingtime": 100
+}
