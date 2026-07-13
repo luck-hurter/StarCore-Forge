@@ -15,4 +15,10 @@ public class ModItems {
             Item::new,
             new Item.Properties()
     );
+
+    public static final DeferredItem<Item> STARCORE_INGOT = ITEMS.registerItem(
+            "starcore_ingot",
+            Item::new,
+            new Item.Properties()
+    );
 }

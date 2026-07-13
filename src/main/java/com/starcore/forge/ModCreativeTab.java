@@ -24,6 +24,7 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.STARCORE_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_STARCORE_ORE.get());
                         output.accept(ModItems.STARCORE.get());
+                        output.accept(ModItems.STARCORE_INGOT.get());
                     })
                     .build()
     );

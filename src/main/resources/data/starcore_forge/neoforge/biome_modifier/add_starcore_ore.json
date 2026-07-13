@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "starcore_forge:starcore_ore_small",
+    "starcore_forge:starcore_ore_middle",
+    "starcore_forge:starcore_ore_upper"
+  ],
+  "step": "underground_ores"
+}
