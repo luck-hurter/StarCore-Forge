@@ -1,5 +1,6 @@
 package com.starcore.forge;
 
+import com.starcore.forge.api.BatchMaterialRegistrar;
 import com.starcore.forge.block.ModBlocks;
 import com.starcore.forge.item.ModItems;
 import net.minecraft.core.registries.Registries;
@@ -25,6 +26,8 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.DEEPSLATE_STARCORE_ORE.get());
                         output.accept(ModItems.STARCORE.get());
                         output.accept(ModItems.STARCORE_INGOT.get());
+                        // 批量注册的材料变体
+                        BatchMaterialRegistrar.getAllVariantItems().forEach(output::accept);
                     })
                     .build()
     );

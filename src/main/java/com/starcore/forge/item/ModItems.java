@@ -1,6 +1,7 @@
 package com.starcore.forge.item;
 
 import com.starcore.forge.StarCoreForge;
+import com.starcore.forge.api.BatchMaterialRegistrar;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -21,4 +22,9 @@ public class ModItems {
             Item::new,
             new Item.Properties()
     );
+
+    // 批量注册所有内置材料变体（板/杆/齿轮/粉）
+    static {
+        BatchMaterialRegistrar.registerAllBuiltIn();
+    }
 }
