@@ -2,7 +2,11 @@ package com.starcore.forge.item;
 
 import com.starcore.forge.StarCoreForge;
 import com.starcore.forge.api.BatchMaterialRegistrar;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -20,6 +24,21 @@ public class ModItems {
     public static final DeferredItem<Item> STARCORE_INGOT = ITEMS.registerItem(
             "starcore_ingot",
             Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> STARCORE_HAMMER = ITEMS.registerItem(
+            "starcore_hammer",
+            properties -> new StarCoreHammerItem(properties.stacksTo(1).durability(300).attributes(
+                    ItemAttributeModifiers.builder()
+                            .add(Attributes.ATTACK_DAMAGE,
+                                    new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, 7.0, AttributeModifier.Operation.ADD_VALUE),
+                                    EquipmentSlotGroup.MAINHAND)
+                            .add(Attributes.ATTACK_SPEED,
+                                    new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, -3.0, AttributeModifier.Operation.ADD_VALUE),
+                                    EquipmentSlotGroup.MAINHAND)
+                            .build()
+            )),
             new Item.Properties()
     );
 

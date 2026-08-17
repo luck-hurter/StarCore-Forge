@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA ",
+    "AAS",
+    "AA "
+  ],
+  "key": {
+    "A": {
+      "item": "starcore_forge:starcore_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "starcore_forge:starcore_hammer",
+    "count": 1
+  }
+}

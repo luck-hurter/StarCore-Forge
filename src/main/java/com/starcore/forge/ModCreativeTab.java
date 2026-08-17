@@ -26,6 +26,7 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.DEEPSLATE_STARCORE_ORE.get());
                         output.accept(ModItems.STARCORE.get());
                         output.accept(ModItems.STARCORE_INGOT.get());
+                        output.accept(ModItems.STARCORE_HAMMER.get());
                         // 批量注册的材料变体
                         BatchMaterialRegistrar.getAllVariantItems().forEach(output::accept);
                     })
