@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "starcore_forge:starcore_hammer"
+    },
+    {
+      "item": "starcore_forge:starcore_ingot"
+    },
+    {
+      "item": "starcore_forge:starcore_ingot"
+    }
+  ],
+  "result": {
+    "id": "starcore_forge:starcore_plate",
+    "count": 1
+  }
+}

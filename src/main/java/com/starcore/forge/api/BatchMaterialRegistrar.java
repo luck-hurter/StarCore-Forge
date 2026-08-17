@@ -26,6 +26,9 @@ public class BatchMaterialRegistrar {
     private static final Map<String, String> EN_PENDING = new LinkedHashMap<>();
     private static final String SRC_RESOURCES = "src/main/resources/assets/starcore_forge/";
     private static final String BUILD_RESOURCES = "build/resources/main/assets/starcore_forge/";
+    private static final String SRC_RECIPES = "src/main/resources/data/starcore_forge/recipe/";
+    private static final String BUILD_RECIPES = "build/resources/main/data/starcore_forge/recipe/";
+    private static final String HAMMER_ITEM = "starcore_forge:starcore_hammer";
     private static final long SEED_BASE = 20240713L;
 
     // ========== 对外 API ==========
@@ -58,13 +61,66 @@ public class BatchMaterialRegistrar {
     }
 
     /**
-     * 批量注册所有内置材料（原版 + 星核）的全部变体
+     * 批量注册所有内置材料（原版 + 星核）的全部变体，并生成对应的"锤锻"配方
      */
     public static void registerAllBuiltIn() {
         for (MaterialConfig material : BuiltInMaterials.ALL) {
             registerMaterial(material, MaterialVariantType.values());
+            generatePlateRecipe(material);
         }
         writeGenLangFiles();
+    }
+
+    /**
+     * 为单个材料生成"锤锻板"无序合成配方：
+     * 竖向3格 = 星辰锻造锤 + 锭 + 锭 → 对应板（如 铁锭×2 + 锤 → 铁板）
+     * 无锭的材料（如钻石，ingotItem 为 null）自动跳过，不生成配方
+     */
+    public static void generatePlateRecipe(MaterialConfig material) {
+        String ingotItem = material.ingotItem();
+        if (ingotItem == null) return; // 非锭材料不生成配方
+
+        String plateName = material.getRegistryName(MaterialVariantType.PLATE);
+        String recipeName = material.name() + "_plate_from_hammer";
+        String json = "{\n" +
+                "  \"type\": \"minecraft:crafting_shapeless\",\n" +
+                "  \"ingredients\": [\n" +
+                "    { \"item\": \"" + HAMMER_ITEM + "\" },\n" +
+                "    { \"item\": \"" + ingotItem + "\" },\n" +
+                "    { \"item\": \"" + ingotItem + "\" }\n" +
+                "  ],\n" +
+                "  \"result\": {\n" +
+                "    \"id\": \"" + StarCoreForge.MOD_ID + ":" + plateName + "\",\n" +
+                "    \"count\": 1\n" +
+                "  }\n" +
+                "}\n";
+        writeRecipeJson(recipeName + ".json", json);
+    }
+
+    /**
+     * 将配方 JSON 写入源目录与构建输出目录（下次启动生效）
+     */
+    private static void writeRecipeJson(String filename, String json) {
+        String[] dirs = {
+            SRC_RECIPES,
+            BUILD_RECIPES,
+            "../../src/main/resources/data/starcore_forge/recipe/",
+            "../../build/resources/main/data/starcore_forge/recipe/"
+        };
+        boolean saved = false;
+        for (String dirPath : dirs) {
+            try {
+                Path dir = Path.of(dirPath);
+                Files.createDirectories(dir);
+                Files.writeString(dir.resolve(filename), json);
+                saved = true;
+            } catch (IOException ignored) {}
+        }
+        if (saved) {
+            System.out.println("[StarCore] Generated recipe: " + filename);
+        } else {
+            System.err.println("[StarCore] Failed to generate recipe: " + filename);
+        }
     }
 
     /**

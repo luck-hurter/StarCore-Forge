@@ -1,14 +1,15 @@
 package com.starcore.forge.api;
 
 /**
- * 材料配置：名称、翻译、颜色
+ * 材料配置：名称、翻译、颜色、锭物品
  */
 public record MaterialConfig(
         String name,           // 注册名，如 "iron", "starcore"
         String zhName,         // 中文名，如 "铁", "星核"
         String enName,         // 英文名，如 "Iron", "StarCore"
         int primaryColor,      // 主色 0xRRGGBB
-        int secondaryColor     // 副色 0xRRGGBB
+        int secondaryColor,    // 副色 0xRRGGBB
+        String ingotItem       // 对应"锭"物品ID，如 "minecraft:iron_ingot"；无锭材料为 null（如钻石）
 ) {
 
     public String getRegistryName(MaterialVariantType type) {
