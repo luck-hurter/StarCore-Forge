@@ -104,6 +104,9 @@ dependencies {
     // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
     implementation "net.neoforged:neoforge:${neo_version}"
 
+    // EMI（配方查看器）：仅运行时调试用，不是编译前置，也不会被发布依赖
+    localRuntime files("libs/emi-1.1.24+1.21.1+neoforge.jar")
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

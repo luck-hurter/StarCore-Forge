@@ -67,13 +67,15 @@ public class BatchMaterialRegistrar {
         for (MaterialConfig material : BuiltInMaterials.ALL) {
             registerMaterial(material, MaterialVariantType.values());
             generatePlateRecipe(material);
+            generateRodRecipe(material);
         }
         writeGenLangFiles();
     }
 
     /**
-     * 为单个材料生成"锤锻板"无序合成配方：
-     * 竖向3格 = 星辰锻造锤 + 锭 + 锭 → 对应板（如 铁锭×2 + 锤 → 铁板）
+     * 为单个材料生成"锤锻板"有序合成配方：
+     * 竖向3格 = 星辰锻造锤在上，两个锭依次在锤子正下方 → 对应板（如 铁锭×2 + 锤 → 铁板）
+     * 有序模式可整体平移到合成栏任意一列，但锭必须严格在锤子正下方
      * 无锭的材料（如钻石，ingotItem 为 null）自动跳过，不生成配方
      */
     public static void generatePlateRecipe(MaterialConfig material) {
@@ -83,15 +85,51 @@ public class BatchMaterialRegistrar {
         String plateName = material.getRegistryName(MaterialVariantType.PLATE);
         String recipeName = material.name() + "_plate_from_hammer";
         String json = "{\n" +
-                "  \"type\": \"minecraft:crafting_shapeless\",\n" +
-                "  \"ingredients\": [\n" +
-                "    { \"item\": \"" + HAMMER_ITEM + "\" },\n" +
-                "    { \"item\": \"" + ingotItem + "\" },\n" +
-                "    { \"item\": \"" + ingotItem + "\" }\n" +
+                "  \"type\": \"minecraft:crafting_shaped\",\n" +
+                "  \"pattern\": [\n" +
+                "    \"H\",\n" +
+                "    \"I\",\n" +
+                "    \"I\"\n" +
                 "  ],\n" +
+                "  \"key\": {\n" +
+                "    \"H\": { \"item\": \"" + HAMMER_ITEM + "\" },\n" +
+                "    \"I\": { \"item\": \"" + ingotItem + "\" }\n" +
+                "  },\n" +
                 "  \"result\": {\n" +
                 "    \"id\": \"" + StarCoreForge.MOD_ID + ":" + plateName + "\",\n" +
                 "    \"count\": 1\n" +
+                "  }\n" +
+                "}\n";
+        writeRecipeJson(recipeName + ".json", json);
+    }
+
+    /**
+     * 为单个材料生成"锤锻杆"有序合成配方：
+     * 左上角为星辰锻造锤，正中与右下角为锭（对角线）→ 对应杆×2（如 铁锭×2 + 锤 → 铁杆×2）
+     * 模式中的空格表示空位（原版规则，不能用其他字符），占满 3×3、位置完全固定，必须在工作台中合成
+     * 注意：须与板配方（竖列 H/I/I）保持不同形状，否则同为"锤+锭×2"的两种配方会冲突，导致板无法合成
+     * 无锭的材料（如钻石，ingotItem 为 null）自动跳过，不生成配方
+     */
+    public static void generateRodRecipe(MaterialConfig material) {
+        String ingotItem = material.ingotItem();
+        if (ingotItem == null) return; // 非锭材料不生成配方
+
+        String rodName = material.getRegistryName(MaterialVariantType.ROD);
+        String recipeName = material.name() + "_rod_from_hammer";
+        String json = "{\n" +
+                "  \"type\": \"minecraft:crafting_shaped\",\n" +
+                "  \"pattern\": [\n" +
+                "    \"H  \",\n" +
+                "    \" I \",\n" +
+                "    \"  I\"\n" +
+                "  ],\n" +
+                "  \"key\": {\n" +
+                "    \"H\": { \"item\": \"" + HAMMER_ITEM + "\" },\n" +
+                "    \"I\": { \"item\": \"" + ingotItem + "\" }\n" +
+                "  },\n" +
+                "  \"result\": {\n" +
+                "    \"id\": \"" + StarCoreForge.MOD_ID + ":" + rodName + "\",\n" +
+                "    \"count\": 2\n" +
                 "  }\n" +
                 "}\n";
         writeRecipeJson(recipeName + ".json", json);

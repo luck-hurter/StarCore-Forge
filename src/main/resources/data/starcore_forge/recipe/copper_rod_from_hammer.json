@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "H",
-    "I",
-    "I"
+    "H  ",
+    " I ",
+    "  I"
   ],
   "key": {
     "H": { "item": "starcore_forge:starcore_hammer" },
-    "I": { "item": "minecraft:netherite_ingot" }
+    "I": { "item": "minecraft:copper_ingot" }
   },
   "result": {
-    "id": "starcore_forge:netherite_plate",
-    "count": 1
+    "id": "starcore_forge:copper_rod",
+    "count": 2
   }
 }
