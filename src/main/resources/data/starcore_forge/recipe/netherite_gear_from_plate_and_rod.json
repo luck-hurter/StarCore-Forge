@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "RIR",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "starcore_forge:netherite_plate" },
+    "R": { "item": "starcore_forge:netherite_rod" },
+    "I": { "item": "minecraft:netherite_ingot" }
+  },
+  "result": {
+    "id": "starcore_forge:netherite_gear",
+    "count": 1
+  }
+}

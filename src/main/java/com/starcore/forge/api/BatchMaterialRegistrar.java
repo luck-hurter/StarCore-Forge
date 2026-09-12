@@ -68,6 +68,7 @@ public class BatchMaterialRegistrar {
             registerMaterial(material, MaterialVariantType.values());
             generatePlateRecipe(material);
             generateRodRecipe(material);
+            generateGearRecipe(material);
         }
         writeGenLangFiles();
     }
@@ -130,6 +131,40 @@ public class BatchMaterialRegistrar {
                 "  \"result\": {\n" +
                 "    \"id\": \"" + StarCoreForge.MOD_ID + ":" + rodName + "\",\n" +
                 "    \"count\": 2\n" +
+                "  }\n" +
+                "}\n";
+        writeRecipeJson(recipeName + ".json", json);
+    }
+
+    /**
+     * 为单个材料生成"齿轮"有序合成配方（不消耗锤）：
+     * 十字形 = 上下为板、左右为杆、正中为锭 → 对应齿轮×1（如 铁板×2 + 铁杆×2 + 铁锭 → 铁齿轮）
+     * 所需板/杆是本模组批量注册的同材料中间产物
+     * 无锭的材料（如钻石，ingotItem 为 null）自动跳过，不生成配方
+     */
+    public static void generateGearRecipe(MaterialConfig material) {
+        String ingotItem = material.ingotItem();
+        if (ingotItem == null) return; // 非锭材料不生成配方
+
+        String plateId = StarCoreForge.MOD_ID + ":" + material.getRegistryName(MaterialVariantType.PLATE);
+        String rodId = StarCoreForge.MOD_ID + ":" + material.getRegistryName(MaterialVariantType.ROD);
+        String gearName = material.getRegistryName(MaterialVariantType.GEAR);
+        String recipeName = material.name() + "_gear_from_plate_and_rod";
+        String json = "{\n" +
+                "  \"type\": \"minecraft:crafting_shaped\",\n" +
+                "  \"pattern\": [\n" +
+                "    \" P \",\n" +
+                "    \"RIR\",\n" +
+                "    \" P \"\n" +
+                "  ],\n" +
+                "  \"key\": {\n" +
+                "    \"P\": { \"item\": \"" + plateId + "\" },\n" +
+                "    \"R\": { \"item\": \"" + rodId + "\" },\n" +
+                "    \"I\": { \"item\": \"" + ingotItem + "\" }\n" +
+                "  },\n" +
+                "  \"result\": {\n" +
+                "    \"id\": \"" + StarCoreForge.MOD_ID + ":" + gearName + "\",\n" +
+                "    \"count\": 1\n" +
                 "  }\n" +
                 "}\n";
         writeRecipeJson(recipeName + ".json", json);

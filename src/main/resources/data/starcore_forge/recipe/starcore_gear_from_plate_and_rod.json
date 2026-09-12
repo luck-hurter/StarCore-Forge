@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "RIR",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "starcore_forge:starcore_plate" },
+    "R": { "item": "starcore_forge:starcore_rod" },
+    "I": { "item": "starcore_forge:starcore_ingot" }
+  },
+  "result": {
+    "id": "starcore_forge:starcore_gear",
+    "count": 1
+  }
+}
