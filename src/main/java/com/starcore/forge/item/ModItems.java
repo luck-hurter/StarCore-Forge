@@ -27,6 +27,36 @@ public class ModItems {
             new Item.Properties()
     );
 
+    public static final DeferredItem<Item> RAW_TIN = ITEMS.registerItem(
+            "raw_tin",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> TIN_INGOT = ITEMS.registerItem(
+            "tin_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> RAW_SILVER = ITEMS.registerItem(
+            "raw_silver",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> SILVER_INGOT = ITEMS.registerItem(
+            "silver_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> BRONZE_INGOT = ITEMS.registerItem(
+            "bronze_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
     public static final DeferredItem<Item> STARCORE_HAMMER = ITEMS.registerItem(
             "starcore_hammer",
             properties -> new StarCoreHammerItem(properties.stacksTo(1).durability(300).attributes(

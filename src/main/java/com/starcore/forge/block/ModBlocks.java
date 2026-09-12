@@ -33,6 +33,38 @@ public class ModBlocks {
                     .sound(SoundType.DEEPSLATE))
     );
 
+    public static final DeferredBlock<Block> TIN_ORE = registerBlock(
+            "tin_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE))
+    );
+
+    public static final DeferredBlock<Block> DEEPSLATE_TIN_ORE = registerBlock(
+            "deepslate_tin_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.5F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE))
+    );
+
+    public static final DeferredBlock<Block> SILVER_ORE = registerBlock(
+            "silver_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE))
+    );
+
+    public static final DeferredBlock<Block> DEEPSLATE_SILVER_ORE = registerBlock(
+            "deepslate_silver_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.5F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE))
+    );
+
     private static <T extends Block> DeferredBlock<T> registerBlock(
             String name, Supplier<T> blockSupplier) {
         DeferredBlock<T> registered = BLOCKS.register(name, blockSupplier);

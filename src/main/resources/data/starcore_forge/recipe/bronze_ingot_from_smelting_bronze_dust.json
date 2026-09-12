@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "starcore_forge:bronze_dust"
+  },
+  "result": {
+    "id": "starcore_forge:bronze_ingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

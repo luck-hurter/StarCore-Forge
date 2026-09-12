@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "starcore_forge:silver_ore"
+  },
+  "result": {
+    "id": "starcore_forge:silver_ingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 100
+}

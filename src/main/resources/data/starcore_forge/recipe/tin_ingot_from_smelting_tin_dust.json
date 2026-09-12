@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "starcore_forge:tin_dust"
+  },
+  "result": {
+    "id": "starcore_forge:tin_ingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

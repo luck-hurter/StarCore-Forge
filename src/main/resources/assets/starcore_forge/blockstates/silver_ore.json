@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "starcore_forge:block/silver_ore"
+    }
+  }
+}

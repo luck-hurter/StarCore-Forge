@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "starcore_forge:copper_dust" },
+    { "item": "starcore_forge:copper_dust" },
+    { "item": "starcore_forge:copper_dust" },
+    { "item": "starcore_forge:tin_dust" }
+  ],
+  "result": {
+    "id": "starcore_forge:bronze_dust",
+    "count": 4
+  }
+}

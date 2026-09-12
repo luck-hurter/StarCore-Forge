@@ -9,8 +9,15 @@ public record MaterialConfig(
         String enName,         // 英文名，如 "Iron", "StarCore"
         int primaryColor,      // 主色 0xRRGGBB
         int secondaryColor,    // 副色 0xRRGGBB
-        String ingotItem       // 对应"锭"物品ID，如 "minecraft:iron_ingot"；无锭材料为 null（如钻石）
+        String ingotItem,      // 对应"锭"物品ID，如 "minecraft:iron_ingot"；无锭材料为 null（如钻石）
+        boolean dustSmeltable  // 粉是否可熔炼成锭（"不可熔炼"标记，false 时不生成粉→锭熔炉配方）
 ) {
+
+    /** 兼容旧调用：默认粉可熔炼 */
+    public MaterialConfig(String name, String zhName, String enName, int primaryColor,
+                          int secondaryColor, String ingotItem) {
+        this(name, zhName, enName, primaryColor, secondaryColor, ingotItem, true);
+    }
 
     public String getRegistryName(MaterialVariantType type) {
         return name + "_" + type.suffix;

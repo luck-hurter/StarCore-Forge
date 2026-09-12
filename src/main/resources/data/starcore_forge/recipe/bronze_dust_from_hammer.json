@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H",
+    "I"
+  ],
+  "key": {
+    "H": { "item": "starcore_forge:starcore_hammer" },
+    "I": { "item": "starcore_forge:bronze_ingot" }
+  },
+  "result": {
+    "id": "starcore_forge:bronze_dust",
+    "count": 1
+  }
+}

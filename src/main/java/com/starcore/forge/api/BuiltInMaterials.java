@@ -32,7 +32,24 @@ public class BuiltInMaterials {
             "starcore_forge:starcore_ingot"
     );
 
-    public static final List<MaterialConfig> ALL = List.of(IRON, GOLD, COPPER, NETHERITE, STARCORE);
+    public static final MaterialConfig TIN = new MaterialConfig(
+            "tin", "锡", "Tin", 0xCDD3D4, 0xE2E7E8,
+            "starcore_forge:tin_ingot"
+    );
+
+    public static final MaterialConfig SILVER = new MaterialConfig(
+            "silver", "银", "Silver", 0xC9E4F3, 0xDDF0FA,
+            "starcore_forge:silver_ingot"
+    );
+
+    /** 青铜：无矿石，锭为基础材料 */
+    public static final MaterialConfig BRONZE = new MaterialConfig(
+            "bronze", "青铜", "Bronze", 0xE7800D, 0xF2A24E,
+            "starcore_forge:bronze_ingot"
+    );
+
+    public static final List<MaterialConfig> ALL =
+            List.of(IRON, GOLD, COPPER, NETHERITE, STARCORE, TIN, SILVER, BRONZE);
 
     private BuiltInMaterials() {}
 }

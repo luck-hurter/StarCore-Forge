@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "starcore_forge:starcore_ore",
-    "starcore_forge:deepslate_starcore_ore"
+    "starcore_forge:deepslate_starcore_ore",
+    "starcore_forge:tin_ore",
+    "starcore_forge:deepslate_tin_ore",
+    "starcore_forge:silver_ore",
+    "starcore_forge:deepslate_silver_ore"
   ]
 }

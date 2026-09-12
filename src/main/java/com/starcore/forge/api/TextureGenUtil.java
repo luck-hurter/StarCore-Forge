@@ -12,8 +12,9 @@ import java.util.Random;
  */
 public class TextureGenUtil {
 
-    private static final String TEXTURE_DIR_SRC = "src/main/resources/assets/starcore_forge/textures/item/";
-    private static final String TEXTURE_DIR_BUILD = "build/resources/main/assets/starcore_forge/textures/item/";
+    // 游戏运行目录为 run/<name>，回写仓库文件必须用 ../../ 相对路径（详见 BatchMaterialRegistrar 说明）
+    private static final String TEXTURE_DIR_SRC = "../../src/main/resources/assets/starcore_forge/textures/item/";
+    private static final String TEXTURE_DIR_BUILD = "../../build/resources/main/assets/starcore_forge/textures/item/";
 
     /**
      * 生成并保存纹理 PNG
@@ -68,12 +69,9 @@ public class TextureGenUtil {
         }
 
         String filename = material.getRegistryName(type) + ".png";
-        // 尝试写入多个可能路径
         String[] dirs = {
             TEXTURE_DIR_SRC,
-            TEXTURE_DIR_BUILD,
-            "../../src/main/resources/assets/starcore_forge/textures/item/",
-            "../../build/resources/main/assets/starcore_forge/textures/item/"
+            TEXTURE_DIR_BUILD
         };
         boolean saved = false;
         for (String dirPath : dirs) {

@@ -24,10 +24,12 @@ public class BatchMaterialRegistrar {
     private static final List<MaterialResult> ALL_RESULTS = new ArrayList<>();
     private static final Map<String, String> ZH_PENDING = new LinkedHashMap<>();
     private static final Map<String, String> EN_PENDING = new LinkedHashMap<>();
-    private static final String SRC_RESOURCES = "src/main/resources/assets/starcore_forge/";
-    private static final String BUILD_RESOURCES = "build/resources/main/assets/starcore_forge/";
-    private static final String SRC_RECIPES = "src/main/resources/data/starcore_forge/recipe/";
-    private static final String BUILD_RECIPES = "build/resources/main/data/starcore_forge/recipe/";
+    // 游戏运行目录为 run/<name>，回写仓库文件必须用 ../../ 相对路径；
+    // 不能用不带 ../../ 的相对路径，否则会在运行目录下创建影子副本并污染后续读取
+    private static final String SRC_RESOURCES = "../../src/main/resources/assets/starcore_forge/";
+    private static final String BUILD_RESOURCES = "../../build/resources/main/assets/starcore_forge/";
+    private static final String SRC_RECIPES = "../../src/main/resources/data/starcore_forge/recipe/";
+    private static final String BUILD_RECIPES = "../../build/resources/main/data/starcore_forge/recipe/";
     private static final String HAMMER_ITEM = "starcore_forge:starcore_hammer";
     private static final long SEED_BASE = 20240713L;
 
@@ -69,6 +71,8 @@ public class BatchMaterialRegistrar {
             generatePlateRecipe(material);
             generateRodRecipe(material);
             generateGearRecipe(material);
+            generateDustRecipe(material);
+            generateDustSmeltingRecipe(material);
         }
         writeGenLangFiles();
     }
@@ -171,14 +175,68 @@ public class BatchMaterialRegistrar {
     }
 
     /**
+     * 为单个材料生成"锤锻粉"有序合成配方：
+     * 竖向2格 = 上为星辰锻造锤、下为锭 → 对应粉×1（如 铁锭 → 铁粉）
+     * 模式仅 1×2，随身 2×2 合成格也可合成；锭必须严格在锤子正下方
+     * 无锭的材料（如钻石，ingotItem 为 null）自动跳过，不生成配方
+     */
+    public static void generateDustRecipe(MaterialConfig material) {
+        String ingotItem = material.ingotItem();
+        if (ingotItem == null) return; // 非锭材料不生成配方
+
+        String dustName = material.getRegistryName(MaterialVariantType.DUST);
+        String recipeName = material.name() + "_dust_from_hammer";
+        String json = "{\n" +
+                "  \"type\": \"minecraft:crafting_shaped\",\n" +
+                "  \"pattern\": [\n" +
+                "    \"H\",\n" +
+                "    \"I\"\n" +
+                "  ],\n" +
+                "  \"key\": {\n" +
+                "    \"H\": { \"item\": \"" + HAMMER_ITEM + "\" },\n" +
+                "    \"I\": { \"item\": \"" + ingotItem + "\" }\n" +
+                "  },\n" +
+                "  \"result\": {\n" +
+                "    \"id\": \"" + StarCoreForge.MOD_ID + ":" + dustName + "\",\n" +
+                "    \"count\": 1\n" +
+                "  }\n" +
+                "}\n";
+        writeRecipeJson(recipeName + ".json", json);
+    }
+
+    /**
+     * 为单个材料生成"粉→锭"熔炉配方：
+     * 任何未被标记"不可熔炼"的粉都能烧成对应锭（如 铁粉 → 铁锭）
+     * 配方 ID 为 <材料>_ingot_from_smelting_<材料>_dust，避免与粗矿/矿石烧炼配方重名
+     * 标记"不可熔炼"（dustSmeltable=false）或无锭的材料自动跳过
+     */
+    public static void generateDustSmeltingRecipe(MaterialConfig material) {
+        if (!material.dustSmeltable()) return; // 标记"不可熔炼"的粉不生成
+        String ingotItem = material.ingotItem();
+        if (ingotItem == null) return; // 无锭材料没有目标产物
+
+        String recipeName = material.name() + "_ingot_from_smelting_" + material.name() + "_dust";
+        String json = "{\n" +
+                "  \"type\": \"minecraft:smelting\",\n" +
+                "  \"ingredient\": {\n" +
+                "    \"item\": \"" + StarCoreForge.MOD_ID + ":" + material.getRegistryName(MaterialVariantType.DUST) + "\"\n" +
+                "  },\n" +
+                "  \"result\": {\n" +
+                "    \"id\": \"" + material.ingotItem() + "\"\n" +
+                "  },\n" +
+                "  \"experience\": 0.7,\n" +
+                "  \"cookingtime\": 200\n" +
+                "}\n";
+        writeRecipeJson(recipeName + ".json", json);
+    }
+
+    /**
      * 将配方 JSON 写入源目录与构建输出目录（下次启动生效）
      */
     private static void writeRecipeJson(String filename, String json) {
         String[] dirs = {
             SRC_RECIPES,
-            BUILD_RECIPES,
-            "../../src/main/resources/data/starcore_forge/recipe/",
-            "../../build/resources/main/data/starcore_forge/recipe/"
+            BUILD_RECIPES
         };
         boolean saved = false;
         for (String dirPath : dirs) {
@@ -219,11 +277,10 @@ public class BatchMaterialRegistrar {
                 "  }\n" +
                 "}\n";
         try {
-            // 写入源目录（下次构建生效）
+            // 写入源目录（版本库）与构建输出目录（当前运行生效）
             Path srcPath = Path.of(SRC_RESOURCES + "models/item/" + name + ".json");
             Files.createDirectories(srcPath.getParent());
             Files.writeString(srcPath, json);
-            // 也写入构建输出目录（当前运行生效）
             Path buildPath = Path.of(BUILD_RESOURCES + "models/item/" + name + ".json");
             Files.createDirectories(buildPath.getParent());
             Files.writeString(buildPath, json);
@@ -245,12 +302,10 @@ public class BatchMaterialRegistrar {
 
         // 读取原文件内容
         StringBuilder sb = new StringBuilder();
-        String base = "assets/starcore_forge/lang/";
+        String base = "lang/";
         String[] readPaths = {
-            SRC_RESOURCES + "lang/" + filename,
-            BUILD_RESOURCES + "lang/" + filename,
-            "../../src/main/resources/" + base + filename,
-            "../../build/resources/main/" + base + filename,
+            SRC_RESOURCES + base + filename,
+            BUILD_RESOURCES + base + filename,
         };
         String existing = null;
         for (String p : readPaths) {
@@ -299,10 +354,8 @@ public class BatchMaterialRegistrar {
 
         // 写入
         String[] writePaths = {
-            SRC_RESOURCES + "lang/" + filename,
-            BUILD_RESOURCES + "lang/" + filename,
-            "../../src/main/resources/" + base + filename,
-            "../../build/resources/main/" + base + filename,
+            SRC_RESOURCES + base + filename,
+            BUILD_RESOURCES + base + filename,
         };
         boolean saved = false;
         for (String p : writePaths) {
