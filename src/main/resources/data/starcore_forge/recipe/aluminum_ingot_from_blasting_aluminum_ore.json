@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "starcore_forge:aluminum_ore"
+  },
+  "result": {
+    "id": "starcore_forge:aluminum_ingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 100
+}

@@ -35,7 +35,10 @@ public class GenerateOreTextures {
         Material[] materials = {
                 new Material("tin", 0xC6CBCC, true),
                 new Material("silver", 0xC9E4F3, true),
-                new Material("bronze", 0xE7800D, false)
+                new Material("bronze", 0xE7800D, false),
+                new Material("lead", 0x7D4FA4, true),
+                new Material("nickel", 0xFFC552, true),
+                new Material("aluminum", 0x86E0FF, true)
         };
 
         for (Material m : materials) {

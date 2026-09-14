@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "RIR",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "starcore_forge:lead_plate" },
+    "R": { "item": "starcore_forge:lead_rod" },
+    "I": { "item": "starcore_forge:lead_ingot" }
+  },
+  "result": {
+    "id": "starcore_forge:lead_gear",
+    "count": 1
+  }
+}

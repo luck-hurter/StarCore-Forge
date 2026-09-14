@@ -6,6 +6,12 @@
     "starcore_forge:tin_ore",
     "starcore_forge:deepslate_tin_ore",
     "starcore_forge:silver_ore",
-    "starcore_forge:deepslate_silver_ore"
+    "starcore_forge:deepslate_silver_ore",
+    "starcore_forge:lead_ore",
+    "starcore_forge:deepslate_lead_ore",
+    "starcore_forge:nickel_ore",
+    "starcore_forge:deepslate_nickel_ore",
+    "starcore_forge:aluminum_ore",
+    "starcore_forge:deepslate_aluminum_ore"
   ]
 }

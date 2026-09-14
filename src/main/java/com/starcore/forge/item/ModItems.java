@@ -57,6 +57,42 @@ public class ModItems {
             new Item.Properties()
     );
 
+    public static final DeferredItem<Item> RAW_LEAD = ITEMS.registerItem(
+            "raw_lead",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> LEAD_INGOT = ITEMS.registerItem(
+            "lead_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> RAW_NICKEL = ITEMS.registerItem(
+            "raw_nickel",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> NICKEL_INGOT = ITEMS.registerItem(
+            "nickel_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> RAW_ALUMINUM = ITEMS.registerItem(
+            "raw_aluminum",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> ALUMINUM_INGOT = ITEMS.registerItem(
+            "aluminum_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
     public static final DeferredItem<Item> STARCORE_HAMMER = ITEMS.registerItem(
             "starcore_hammer",
             properties -> new StarCoreHammerItem(properties.stacksTo(1).durability(300).attributes(

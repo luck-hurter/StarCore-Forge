@@ -48,8 +48,23 @@ public class BuiltInMaterials {
             "starcore_forge:bronze_ingot"
     );
 
+    public static final MaterialConfig LEAD = new MaterialConfig(
+            "lead", "铅", "Lead", 0x7D4FA4, 0x976FC1,
+            "starcore_forge:lead_ingot"
+    );
+
+    public static final MaterialConfig NICKEL = new MaterialConfig(
+            "nickel", "镍", "Nickel", 0xFFC552, 0xFFDA8A,
+            "starcore_forge:nickel_ingot"
+    );
+
+    public static final MaterialConfig ALUMINUM = new MaterialConfig(
+            "aluminum", "铝", "Aluminum", 0x86E0FF, 0xAEECFF,
+            "starcore_forge:aluminum_ingot"
+    );
+
     public static final List<MaterialConfig> ALL =
-            List.of(IRON, GOLD, COPPER, NETHERITE, STARCORE, TIN, SILVER, BRONZE);
+            List.of(IRON, GOLD, COPPER, NETHERITE, STARCORE, TIN, SILVER, BRONZE, LEAD, NICKEL, ALUMINUM);
 
     private BuiltInMaterials() {}
 }

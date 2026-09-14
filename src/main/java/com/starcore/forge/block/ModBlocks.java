@@ -65,6 +65,54 @@ public class ModBlocks {
                     .sound(SoundType.DEEPSLATE))
     );
 
+    public static final DeferredBlock<Block> LEAD_ORE = registerBlock(
+            "lead_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE))
+    );
+
+    public static final DeferredBlock<Block> DEEPSLATE_LEAD_ORE = registerBlock(
+            "deepslate_lead_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.5F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE))
+    );
+
+    public static final DeferredBlock<Block> NICKEL_ORE = registerBlock(
+            "nickel_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE))
+    );
+
+    public static final DeferredBlock<Block> DEEPSLATE_NICKEL_ORE = registerBlock(
+            "deepslate_nickel_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.5F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE))
+    );
+
+    public static final DeferredBlock<Block> ALUMINUM_ORE = registerBlock(
+            "aluminum_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE))
+    );
+
+    public static final DeferredBlock<Block> DEEPSLATE_ALUMINUM_ORE = registerBlock(
+            "deepslate_aluminum_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.5F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE))
+    );
+
     private static <T extends Block> DeferredBlock<T> registerBlock(
             String name, Supplier<T> blockSupplier) {
         DeferredBlock<T> registered = BLOCKS.register(name, blockSupplier);

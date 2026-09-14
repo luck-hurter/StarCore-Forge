@@ -28,6 +28,12 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.DEEPSLATE_TIN_ORE.get());
                         output.accept(ModBlocks.SILVER_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_SILVER_ORE.get());
+                        output.accept(ModBlocks.LEAD_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_LEAD_ORE.get());
+                        output.accept(ModBlocks.NICKEL_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_NICKEL_ORE.get());
+                        output.accept(ModBlocks.ALUMINUM_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_ALUMINUM_ORE.get());
                         output.accept(ModItems.STARCORE.get());
                         output.accept(ModItems.STARCORE_INGOT.get());
                         output.accept(ModItems.RAW_TIN.get());
@@ -35,6 +41,12 @@ public class ModCreativeTab {
                         output.accept(ModItems.RAW_SILVER.get());
                         output.accept(ModItems.SILVER_INGOT.get());
                         output.accept(ModItems.BRONZE_INGOT.get());
+                        output.accept(ModItems.RAW_LEAD.get());
+                        output.accept(ModItems.LEAD_INGOT.get());
+                        output.accept(ModItems.RAW_NICKEL.get());
+                        output.accept(ModItems.NICKEL_INGOT.get());
+                        output.accept(ModItems.RAW_ALUMINUM.get());
+                        output.accept(ModItems.ALUMINUM_INGOT.get());
                         output.accept(ModItems.STARCORE_HAMMER.get());
                         // 批量注册的材料变体
                         BatchMaterialRegistrar.getAllVariantItems().forEach(output::accept);

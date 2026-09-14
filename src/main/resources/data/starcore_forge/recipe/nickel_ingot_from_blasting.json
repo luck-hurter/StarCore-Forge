@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "starcore_forge:raw_nickel"
+  },
+  "result": {
+    "id": "starcore_forge:nickel_ingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 100
+}

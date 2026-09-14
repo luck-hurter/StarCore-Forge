@@ -26,7 +26,10 @@ public class GenerateBatchAssets {
         MaterialConfig[] materials = {
                 new MaterialConfig("tin", "锡", "Tin", 0xCDD3D4, 0xE2E7E8, "starcore_forge:tin_ingot"),
                 new MaterialConfig("silver", "银", "Silver", 0xC9E4F3, 0xDDF0FA, "starcore_forge:silver_ingot"),
-                new MaterialConfig("bronze", "青铜", "Bronze", 0xE7800D, 0xF2A24E, "starcore_forge:bronze_ingot")
+                new MaterialConfig("bronze", "青铜", "Bronze", 0xE7800D, 0xF2A24E, "starcore_forge:bronze_ingot"),
+                new MaterialConfig("lead", "铅", "Lead", 0x7D4FA4, 0x976FC1, "starcore_forge:lead_ingot"),
+                new MaterialConfig("nickel", "镍", "Nickel", 0xFFC552, 0xFFDA8A, "starcore_forge:nickel_ingot"),
+                new MaterialConfig("aluminum", "铝", "Aluminum", 0x86E0FF, 0xAEECFF, "starcore_forge:aluminum_ingot")
         };
 
         for (MaterialConfig m : materials) {

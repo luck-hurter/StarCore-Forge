@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "starcore_forge:block/aluminum_ore"
+    }
+  }
+}
