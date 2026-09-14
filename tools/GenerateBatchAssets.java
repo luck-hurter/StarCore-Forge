@@ -29,7 +29,9 @@ public class GenerateBatchAssets {
                 new MaterialConfig("bronze", "青铜", "Bronze", 0xE7800D, 0xF2A24E, "starcore_forge:bronze_ingot"),
                 new MaterialConfig("lead", "铅", "Lead", 0x7D4FA4, 0x976FC1, "starcore_forge:lead_ingot"),
                 new MaterialConfig("nickel", "镍", "Nickel", 0xFFC552, 0xFFDA8A, "starcore_forge:nickel_ingot"),
-                new MaterialConfig("aluminum", "铝", "Aluminum", 0x86E0FF, 0xAEECFF, "starcore_forge:aluminum_ingot")
+                new MaterialConfig("aluminum", "铝", "Aluminum", 0x86E0FF, 0xAEECFF, "starcore_forge:aluminum_ingot"),
+                new MaterialConfig("cobalt", "钴", "Cobalt", 0x7270FF, 0x9B99FF, "starcore_forge:cobalt_ingot"),
+                new MaterialConfig("zinc", "锌", "Zinc", 0xE4FFCA, 0xEFFFE0, "starcore_forge:zinc_ingot")
         };
 
         for (MaterialConfig m : materials) {

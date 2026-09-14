@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "starcore_forge:raw_zinc"
+  },
+  "result": {
+    "id": "starcore_forge:zinc_ingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 100
+}

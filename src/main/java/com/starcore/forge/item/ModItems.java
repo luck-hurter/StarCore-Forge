@@ -93,6 +93,30 @@ public class ModItems {
             new Item.Properties()
     );
 
+    public static final DeferredItem<Item> RAW_COBALT = ITEMS.registerItem(
+            "raw_cobalt",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> COBALT_INGOT = ITEMS.registerItem(
+            "cobalt_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> RAW_ZINC = ITEMS.registerItem(
+            "raw_zinc",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> ZINC_INGOT = ITEMS.registerItem(
+            "zinc_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
     public static final DeferredItem<Item> STARCORE_HAMMER = ITEMS.registerItem(
             "starcore_hammer",
             properties -> new StarCoreHammerItem(properties.stacksTo(1).durability(300).attributes(

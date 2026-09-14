@@ -38,7 +38,9 @@ public class GenerateOreTextures {
                 new Material("bronze", 0xE7800D, false),
                 new Material("lead", 0x7D4FA4, true),
                 new Material("nickel", 0xFFC552, true),
-                new Material("aluminum", 0x86E0FF, true)
+                new Material("aluminum", 0x86E0FF, true),
+                new Material("cobalt", 0x7270FF, true),
+                new Material("zinc", 0xE4FFCA, true)
         };
 
         for (Material m : materials) {

@@ -63,8 +63,18 @@ public class BuiltInMaterials {
             "starcore_forge:aluminum_ingot"
     );
 
+    public static final MaterialConfig COBALT = new MaterialConfig(
+            "cobalt", "钴", "Cobalt", 0x7270FF, 0x9B99FF,
+            "starcore_forge:cobalt_ingot"
+    );
+
+    public static final MaterialConfig ZINC = new MaterialConfig(
+            "zinc", "锌", "Zinc", 0xE4FFCA, 0xEFFFE0,
+            "starcore_forge:zinc_ingot"
+    );
+
     public static final List<MaterialConfig> ALL =
-            List.of(IRON, GOLD, COPPER, NETHERITE, STARCORE, TIN, SILVER, BRONZE, LEAD, NICKEL, ALUMINUM);
+            List.of(IRON, GOLD, COPPER, NETHERITE, STARCORE, TIN, SILVER, BRONZE, LEAD, NICKEL, ALUMINUM, COBALT, ZINC);
 
     private BuiltInMaterials() {}
 }

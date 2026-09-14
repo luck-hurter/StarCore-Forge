@@ -34,6 +34,10 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.DEEPSLATE_NICKEL_ORE.get());
                         output.accept(ModBlocks.ALUMINUM_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_ALUMINUM_ORE.get());
+                        output.accept(ModBlocks.COBALT_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_COBALT_ORE.get());
+                        output.accept(ModBlocks.ZINC_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_ZINC_ORE.get());
                         output.accept(ModItems.STARCORE.get());
                         output.accept(ModItems.STARCORE_INGOT.get());
                         output.accept(ModItems.RAW_TIN.get());
@@ -47,6 +51,10 @@ public class ModCreativeTab {
                         output.accept(ModItems.NICKEL_INGOT.get());
                         output.accept(ModItems.RAW_ALUMINUM.get());
                         output.accept(ModItems.ALUMINUM_INGOT.get());
+                        output.accept(ModItems.RAW_COBALT.get());
+                        output.accept(ModItems.COBALT_INGOT.get());
+                        output.accept(ModItems.RAW_ZINC.get());
+                        output.accept(ModItems.ZINC_INGOT.get());
                         output.accept(ModItems.STARCORE_HAMMER.get());
                         // 批量注册的材料变体
                         BatchMaterialRegistrar.getAllVariantItems().forEach(output::accept);

@@ -12,6 +12,10 @@
     "starcore_forge:nickel_ore",
     "starcore_forge:deepslate_nickel_ore",
     "starcore_forge:aluminum_ore",
-    "starcore_forge:deepslate_aluminum_ore"
+    "starcore_forge:deepslate_aluminum_ore",
+    "starcore_forge:cobalt_ore",
+    "starcore_forge:deepslate_cobalt_ore",
+    "starcore_forge:zinc_ore",
+    "starcore_forge:deepslate_zinc_ore"
   ]
 }
