@@ -31,13 +31,21 @@ public class GenerateBatchAssets {
                 new MaterialConfig("nickel", "镍", "Nickel", 0xFFC552, 0xFFDA8A, "starcore_forge:nickel_ingot"),
                 new MaterialConfig("aluminum", "铝", "Aluminum", 0x86E0FF, 0xAEECFF, "starcore_forge:aluminum_ingot"),
                 new MaterialConfig("cobalt", "钴", "Cobalt", 0x7270FF, 0x9B99FF, "starcore_forge:cobalt_ingot"),
-                new MaterialConfig("zinc", "锌", "Zinc", 0xE4FFCA, 0xEFFFE0, "starcore_forge:zinc_ingot")
+                new MaterialConfig("zinc", "锌", "Zinc", 0xE4FFCA, 0xEFFFE0, "starcore_forge:zinc_ingot"),
+                new MaterialConfig("titanium", "钛", "Titanium", 0xDAFFF7, 0xEBFFFA, "starcore_forge:titanium_ingot"),
+                new MaterialConfig("vanadium", "钒", "Vanadium", 0xA0ADAA, 0xBCC9C6, "starcore_forge:vanadium_ingot"),
+                new MaterialConfig("chromium", "铬", "Chromium", 0xF0E0BF, 0xFAF0DA, "starcore_forge:chromium_ingot"),
+                new MaterialConfig("gallium", "镓", "Gallium", 0xE3FEFF, 0xF0FFFF, "starcore_forge:gallium_ingot")
         };
 
         for (MaterialConfig m : materials) {
             for (MaterialVariantType type : MaterialVariantType.values()) {
                 TextureGenUtil.generate(m, type, SEED_BASE + m.name().hashCode() + type.ordinal() * 31L);
                 writeModel(m.getRegistryName(type));
+            }
+            // 锭为本模组物品时，自动生成锭的物品模型（无矿石材料如青铜/钛等容易漏掉这步）
+            if (m.ingotItem() != null && m.ingotItem().startsWith(MOD_ID + ":")) {
+                writeModel(m.name() + "_ingot");
             }
             writeRecipe(m.name() + "_plate_from_hammer", plateJson(m));
             writeRecipe(m.name() + "_rod_from_hammer", rodJson(m));

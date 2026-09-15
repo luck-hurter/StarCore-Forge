@@ -117,6 +117,30 @@ public class ModItems {
             new Item.Properties()
     );
 
+    public static final DeferredItem<Item> TITANIUM_INGOT = ITEMS.registerItem(
+            "titanium_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> VANADIUM_INGOT = ITEMS.registerItem(
+            "vanadium_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> CHROMIUM_INGOT = ITEMS.registerItem(
+            "chromium_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<Item> GALLIUM_INGOT = ITEMS.registerItem(
+            "gallium_ingot",
+            Item::new,
+            new Item.Properties()
+    );
+
     public static final DeferredItem<Item> STARCORE_HAMMER = ITEMS.registerItem(
             "starcore_hammer",
             properties -> new StarCoreHammerItem(properties.stacksTo(1).durability(300).attributes(

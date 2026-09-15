@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "RIR",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "starcore_forge:vanadium_plate" },
+    "R": { "item": "starcore_forge:vanadium_rod" },
+    "I": { "item": "starcore_forge:vanadium_ingot" }
+  },
+  "result": {
+    "id": "starcore_forge:vanadium_gear",
+    "count": 1
+  }
+}

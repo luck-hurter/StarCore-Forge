@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "starcore_forge:chromium_dust"
+  },
+  "result": {
+    "id": "starcore_forge:chromium_ingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

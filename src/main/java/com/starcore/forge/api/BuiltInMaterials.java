@@ -73,8 +73,30 @@ public class BuiltInMaterials {
             "starcore_forge:zinc_ingot"
     );
 
-    public static final List<MaterialConfig> ALL =
-            List.of(IRON, GOLD, COPPER, NETHERITE, STARCORE, TIN, SILVER, BRONZE, LEAD, NICKEL, ALUMINUM, COBALT, ZINC);
+    /** 以下为无矿石材料，锭为基础材料 */
+    public static final MaterialConfig TITANIUM = new MaterialConfig(
+            "titanium", "钛", "Titanium", 0xDAFFF7, 0xEBFFFA,
+            "starcore_forge:titanium_ingot"
+    );
+
+    public static final MaterialConfig VANADIUM = new MaterialConfig(
+            "vanadium", "钒", "Vanadium", 0xA0ADAA, 0xBCC9C6,
+            "starcore_forge:vanadium_ingot"
+    );
+
+    public static final MaterialConfig CHROMIUM = new MaterialConfig(
+            "chromium", "铬", "Chromium", 0xF0E0BF, 0xFAF0DA,
+            "starcore_forge:chromium_ingot"
+    );
+
+    public static final MaterialConfig GALLIUM = new MaterialConfig(
+            "gallium", "镓", "Gallium", 0xE3FEFF, 0xF0FFFF,
+            "starcore_forge:gallium_ingot"
+    );
+
+    public static final List<MaterialConfig> ALL = List.of(
+            IRON, GOLD, COPPER, NETHERITE, STARCORE, TIN, SILVER, BRONZE,
+            LEAD, NICKEL, ALUMINUM, COBALT, ZINC, TITANIUM, VANADIUM, CHROMIUM, GALLIUM);
 
     private BuiltInMaterials() {}
 }

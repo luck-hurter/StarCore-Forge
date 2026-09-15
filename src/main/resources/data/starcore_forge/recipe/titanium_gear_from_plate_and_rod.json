@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "RIR",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "starcore_forge:titanium_plate" },
+    "R": { "item": "starcore_forge:titanium_rod" },
+    "I": { "item": "starcore_forge:titanium_ingot" }
+  },
+  "result": {
+    "id": "starcore_forge:titanium_gear",
+    "count": 1
+  }
+}

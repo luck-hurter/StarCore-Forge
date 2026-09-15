@@ -40,7 +40,11 @@ public class GenerateOreTextures {
                 new Material("nickel", 0xFFC552, true),
                 new Material("aluminum", 0x86E0FF, true),
                 new Material("cobalt", 0x7270FF, true),
-                new Material("zinc", 0xE4FFCA, true)
+                new Material("zinc", 0xE4FFCA, true),
+                new Material("titanium", 0xDAFFF7, false),
+                new Material("vanadium", 0xA0ADAA, false),
+                new Material("chromium", 0xF0E0BF, false),
+                new Material("gallium", 0xE3FEFF, false)
         };
 
         for (Material m : materials) {

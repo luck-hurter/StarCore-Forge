@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "RIR",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "starcore_forge:gallium_plate" },
+    "R": { "item": "starcore_forge:gallium_rod" },
+    "I": { "item": "starcore_forge:gallium_ingot" }
+  },
+  "result": {
+    "id": "starcore_forge:gallium_gear",
+    "count": 1
+  }
+}

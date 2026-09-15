@@ -55,6 +55,10 @@ public class ModCreativeTab {
                         output.accept(ModItems.COBALT_INGOT.get());
                         output.accept(ModItems.RAW_ZINC.get());
                         output.accept(ModItems.ZINC_INGOT.get());
+                        output.accept(ModItems.TITANIUM_INGOT.get());
+                        output.accept(ModItems.VANADIUM_INGOT.get());
+                        output.accept(ModItems.CHROMIUM_INGOT.get());
+                        output.accept(ModItems.GALLIUM_INGOT.get());
                         output.accept(ModItems.STARCORE_HAMMER.get());
                         // 批量注册的材料变体
                         BatchMaterialRegistrar.getAllVariantItems().forEach(output::accept);
