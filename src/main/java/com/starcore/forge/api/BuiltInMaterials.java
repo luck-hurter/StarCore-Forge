@@ -94,9 +94,35 @@ public class BuiltInMaterials {
             "starcore_forge:gallium_ingot"
     );
 
+    public static final MaterialConfig ANTIMONY = new MaterialConfig(
+            "antimony", "锑", "Antimony", 0xDBEEFF, 0xE8F5FF,
+            "starcore_forge:antimony_ingot"
+    );
+
+    public static final MaterialConfig TANTALUM = new MaterialConfig(
+            "tantalum", "钽", "Tantalum", 0x1F92FF, 0x63B4FF,
+            "starcore_forge:tantalum_ingot"
+    );
+
+    public static final MaterialConfig MANGANESE = new MaterialConfig(
+            "manganese", "锰", "Manganese", 0xAA1FFF, 0xC25FFF,
+            "starcore_forge:manganese_ingot"
+    );
+
+    public static final MaterialConfig SCANDIUM = new MaterialConfig(
+            "scandium", "钪", "Scandium", 0xFFE7B9, 0xFFF2D9,
+            "starcore_forge:scandium_ingot"
+    );
+
+    public static final MaterialConfig SILICON = new MaterialConfig(
+            "silicon", "硅", "Silicon", 0x858599, 0xA5A5B8,
+            "starcore_forge:silicon_ingot"
+    );
+
     public static final List<MaterialConfig> ALL = List.of(
             IRON, GOLD, COPPER, NETHERITE, STARCORE, TIN, SILVER, BRONZE,
-            LEAD, NICKEL, ALUMINUM, COBALT, ZINC, TITANIUM, VANADIUM, CHROMIUM, GALLIUM);
+            LEAD, NICKEL, ALUMINUM, COBALT, ZINC, TITANIUM, VANADIUM, CHROMIUM, GALLIUM,
+            ANTIMONY, TANTALUM, MANGANESE, SCANDIUM, SILICON);
 
     private BuiltInMaterials() {}
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "RIR",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "starcore_forge:antimony_plate" },
+    "R": { "item": "starcore_forge:antimony_rod" },
+    "I": { "item": "starcore_forge:antimony_ingot" }
+  },
+  "result": {
+    "id": "starcore_forge:antimony_gear",
+    "count": 1
+  }
+}

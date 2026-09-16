@@ -35,7 +35,12 @@ public class GenerateBatchAssets {
                 new MaterialConfig("titanium", "钛", "Titanium", 0xDAFFF7, 0xEBFFFA, "starcore_forge:titanium_ingot"),
                 new MaterialConfig("vanadium", "钒", "Vanadium", 0xA0ADAA, 0xBCC9C6, "starcore_forge:vanadium_ingot"),
                 new MaterialConfig("chromium", "铬", "Chromium", 0xF0E0BF, 0xFAF0DA, "starcore_forge:chromium_ingot"),
-                new MaterialConfig("gallium", "镓", "Gallium", 0xE3FEFF, 0xF0FFFF, "starcore_forge:gallium_ingot")
+                new MaterialConfig("gallium", "镓", "Gallium", 0xE3FEFF, 0xF0FFFF, "starcore_forge:gallium_ingot"),
+                new MaterialConfig("antimony", "锑", "Antimony", 0xDBEEFF, 0xE8F5FF, "starcore_forge:antimony_ingot"),
+                new MaterialConfig("tantalum", "钽", "Tantalum", 0x1F92FF, 0x63B4FF, "starcore_forge:tantalum_ingot"),
+                new MaterialConfig("manganese", "锰", "Manganese", 0xAA1FFF, 0xC25FFF, "starcore_forge:manganese_ingot"),
+                new MaterialConfig("scandium", "钪", "Scandium", 0xFFE7B9, 0xFFF2D9, "starcore_forge:scandium_ingot"),
+                new MaterialConfig("silicon", "硅", "Silicon", 0x858599, 0xA5A5B8, "starcore_forge:silicon_ingot")
         };
 
         for (MaterialConfig m : materials) {

@@ -44,7 +44,12 @@ public class GenerateOreTextures {
                 new Material("titanium", 0xDAFFF7, false),
                 new Material("vanadium", 0xA0ADAA, false),
                 new Material("chromium", 0xF0E0BF, false),
-                new Material("gallium", 0xE3FEFF, false)
+                new Material("gallium", 0xE3FEFF, false),
+                new Material("antimony", 0xDBEEFF, false),
+                new Material("tantalum", 0x1F92FF, false),
+                new Material("manganese", 0xAA1FFF, false),
+                new Material("scandium", 0xFFE7B9, false),
+                new Material("silicon", 0x858599, false)
         };
 
         for (Material m : materials) {
