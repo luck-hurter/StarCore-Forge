@@ -48,7 +48,7 @@ public class GenerateOreTextures {
                 new Material("antimony", 0xDBEEFF, false),
                 new Material("tantalum", 0x1F92FF, false),
                 new Material("manganese", 0xAA1FFF, false),
-                new Material("scandium", 0xFFE7B9, false),
+                new Material("scandium", 0xEDFFAC, false),
                 new Material("silicon", 0x858599, false)
         };
 

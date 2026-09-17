@@ -110,7 +110,7 @@ public class BuiltInMaterials {
     );
 
     public static final MaterialConfig SCANDIUM = new MaterialConfig(
-            "scandium", "钪", "Scandium", 0xFFE7B9, 0xFFF2D9,
+            "scandium", "钪", "Scandium", 0xEDFFAC, 0xF2FFC5,
             "starcore_forge:scandium_ingot"
     );
 

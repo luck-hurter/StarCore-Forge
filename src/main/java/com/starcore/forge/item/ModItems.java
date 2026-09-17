@@ -7,6 +7,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -184,6 +185,24 @@ public class ModItems {
                             .build()
             )),
             new Item.Properties()
+    );
+
+    // 流体单元：空单元 + 水/岩浆单元（后续氢/氧等流体沿用 FluidCellItem 注册）
+    // 注意：空单元必须用 FluidCellItem.emptyCell 注册——用 Item::new 会得到无任何交互行为的白板物品
+    public static final DeferredItem<Item> CELL = ITEMS.registerItem(
+            "cell",
+            FluidCellItem::emptyCell,
+            new Item.Properties().stacksTo(64)
+    );
+
+    public static final DeferredItem<Item> WATER_CELL = ITEMS.registerItem(
+            "water_cell",
+            props -> new FluidCellItem(() -> Fluids.WATER, props.stacksTo(64))
+    );
+
+    public static final DeferredItem<Item> LAVA_CELL = ITEMS.registerItem(
+            "lava_cell",
+            props -> new FluidCellItem(() -> Fluids.LAVA, props.stacksTo(64))
     );
 
     // 批量注册所有内置材料变体（板/杆/齿轮/粉）

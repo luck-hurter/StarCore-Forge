@@ -65,6 +65,9 @@ public class ModCreativeTab {
                         output.accept(ModItems.SCANDIUM_INGOT.get());
                         output.accept(ModItems.SILICON_INGOT.get());
                         output.accept(ModItems.STARCORE_HAMMER.get());
+                        output.accept(ModItems.CELL.get());
+                        output.accept(ModItems.WATER_CELL.get());
+                        output.accept(ModItems.LAVA_CELL.get());
                         // 批量注册的材料变体
                         BatchMaterialRegistrar.getAllVariantItems().forEach(output::accept);
                     })
